@@ -16,7 +16,7 @@ public class UsuarioSaidaDto {
     private String email;
 
     public UsuarioSaidaDto(UsuarioModel usuarioModel) {
-        this.codigo = usuarioModel.getCodigo();
+        this.codigo = usuarioModel.getId();
         this.nomeUsuario = usuarioModel.getNomeUsuario();
         this.dataNascimento = usuarioModel.getDataNascimento();
         this.email = usuarioModel.getEmail();

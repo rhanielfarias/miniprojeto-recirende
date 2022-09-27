@@ -38,7 +38,7 @@ public class UsuarioService {
     }
 
     public UsuarioModel alterar(UsuarioModel usuario, Integer codigo) {
-        usuario.getCodigo();
+        usuario.getId();
         return usuarioRepository.save(usuario);
     }
 

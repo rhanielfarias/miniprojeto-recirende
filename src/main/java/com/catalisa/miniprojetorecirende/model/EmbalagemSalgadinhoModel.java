@@ -16,9 +16,23 @@ public class EmbalagemSalgadinhoModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID id;
+    private Long id;
 
     @Column(nullable = false, length = 12)
     private String marcaSalgadinho;
+
+
+    @Column(nullable = false, length = 8) //tamanho maximo de número de série de 8 digitos
+    private String numeroDeSerie;
+
+    private Integer pontos;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
+    private UsuarioModel usuarioModel;
+
+    @ManyToOne
+    @JoinColumn(name = "ponto_coleta_id", referencedColumnName = "id")
+    private PontoDeTrocaModel pontoDeTrocaModel;
 
 }

@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface IEmbalagemSalgadinho extends JpaRepository<EmbalagemSalgadinhoModel, UUID> {
+public interface IEmbalagemSalgadinho extends JpaRepository<EmbalagemSalgadinhoModel, Long> {
 }

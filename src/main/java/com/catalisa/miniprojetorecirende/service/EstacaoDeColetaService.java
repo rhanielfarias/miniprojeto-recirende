@@ -1,6 +1,7 @@
 package com.catalisa.miniprojetorecirende.service;
 
-import com.catalisa.miniprojetorecirende.model.EstacaoDeColetaModel;
+import com.catalisa.miniprojetorecirende.enumerations.factory.EstadoFactory;
+import com.catalisa.miniprojetorecirende.model.PontoDeTrocaModel;
 import com.catalisa.miniprojetorecirende.model.dto.EstacaoDeColetaDto;
 import com.catalisa.miniprojetorecirende.repository.IEstacaoDeColetaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,22 +17,17 @@ public class EstacaoDeColetaService {
     IEstacaoDeColetaRepository iEstacaoDeColetaRepository;
 
     public List<EstacaoDeColetaDto> listaDeEstacao() {
-        List<EstacaoDeColetaModel> estacao = iEstacaoDeColetaRepository.findAll();
+        List<PontoDeTrocaModel> estacao = iEstacaoDeColetaRepository.findAll();
         return EstacaoDeColetaDto.convert(estacao);
     }
 
-    public Optional<EstacaoDeColetaModel> buscarPorid(Long id) {
+    public Optional<PontoDeTrocaModel> buscarPorid(Long id) {
         return iEstacaoDeColetaRepository.findById(id);
     }
 
-    public EstacaoDeColetaModel cadastrar(EstacaoDeColetaModel estacaoDeColetaModel) {
-        estacaoDeColetaModel.getId();
-        estacaoDeColetaModel.getRazaoSocial();
-        estacaoDeColetaModel.getNomeFantasia();
-        estacaoDeColetaModel.getCnpj();
-        estacaoDeColetaModel.getLogradouro();
-        estacaoDeColetaModel.getCidade();
-        estacaoDeColetaModel.getEstado().toUpperCase();
+    public PontoDeTrocaModel cadastrar(PontoDeTrocaModel estacaoDeColetaModel, EstadoFactory estadoFactory) {
+       String estado = String.valueOf(estadoFactory.estado(estacaoDeColetaModel.getEstado()));
+        estacaoDeColetaModel.setEstado(estado);
         return iEstacaoDeColetaRepository.save(estacaoDeColetaModel);
     }
 

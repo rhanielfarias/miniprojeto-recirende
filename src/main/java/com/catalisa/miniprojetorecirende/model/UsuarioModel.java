@@ -22,7 +22,7 @@ import java.util.List;
 public class UsuarioModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer codigo;
+    private Integer id;
     @NotBlank(message = "Obrigatório por o nome")
     private String nomeUsuario;
 

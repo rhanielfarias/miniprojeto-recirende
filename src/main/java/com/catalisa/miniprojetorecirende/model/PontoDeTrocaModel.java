@@ -1,17 +1,20 @@
 package com.catalisa.miniprojetorecirende.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.br.CNPJ;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
-@Table(name = "estacao_coleta")
+@Table(name = "ponto_coleta")
 @Entity
-public class EstacaoDeColetaModel {
+public class PontoDeTrocaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,4 +36,12 @@ public class EstacaoDeColetaModel {
     @Column
     @NotNull
     private String estado;
+    @Column
+    private Integer qntEmbalagens;
+    @Column
+    private BigDecimal pntsDistribuidos;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "pontoDeTrocaModel",cascade = CascadeType.ALL)
+    private List<EmbalagemSalgadinhoModel> embalagemSalgadinhoModels;
 }
