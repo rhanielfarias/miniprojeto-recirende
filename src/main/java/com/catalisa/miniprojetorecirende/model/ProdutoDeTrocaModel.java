@@ -25,6 +25,4 @@ public class ProdutoDeTrocaModel {
 
     @Column(name = "pontos_de_troca", length = 225, nullable = false)
     private BigDecimal pontosDeTroca;
-
-
 }
