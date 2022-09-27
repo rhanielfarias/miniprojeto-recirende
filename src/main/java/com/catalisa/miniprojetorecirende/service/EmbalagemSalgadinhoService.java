@@ -23,7 +23,7 @@ public class EmbalagemSalgadinhoService {
         return iEmbalagemSalgadinho.findAll();
     }
 
-    public Optional<EmbalagemSalgadinhoModel> exibirEmbalabensPorId(UUID id) {
+    public Optional<EmbalagemSalgadinhoModel> exibirEmbalabensPorId(Long id) {
         return iEmbalagemSalgadinho.findById(id);
     }
 
@@ -31,7 +31,7 @@ public class EmbalagemSalgadinhoService {
         return iEmbalagemSalgadinho.save(embalagemSalgadinhoModel);
     }
 
-    public void deletarEmbalagens(UUID id) {
+    public void deletarEmbalagens(long id) {
         iEmbalagemSalgadinho.deleteById(id);
     }
 }

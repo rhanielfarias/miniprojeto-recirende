@@ -1,6 +1,6 @@
 package com.catalisa.miniprojetorecirende.controller;
 
-import com.catalisa.miniprojetorecirende.model.EstacaoDeColetaModel;
+import com.catalisa.miniprojetorecirende.model.PontoDeTrocaModel;
 import com.catalisa.miniprojetorecirende.model.dto.EstacaoDeColetaDto;
 import com.catalisa.miniprojetorecirende.service.EstacaoDeColetaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,18 +25,18 @@ public class EstacaoDeColetaController {
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<Optional<EstacaoDeColetaModel>> buscarIdColeta(@PathVariable Long id) {
+    public ResponseEntity<Optional<PontoDeTrocaModel>> buscarIdColeta(@PathVariable Long id) {
         return ResponseEntity.ok(estacaoDeColetaService.buscarPorid(id));
     }
 
     @PostMapping
-    public ResponseEntity<EstacaoDeColetaModel> cadastrarEstacaoDeColeta(@RequestBody @Valid EstacaoDeColetaModel estacaoDeColetaModel) {
-        EstacaoDeColetaModel estacao = estacaoDeColetaService.cadastrar(estacaoDeColetaModel);
+    public ResponseEntity<PontoDeTrocaModel> cadastrarEstacaoDeColeta(@RequestBody @Valid PontoDeTrocaModel estacaoDeColetaModel) {
+        PontoDeTrocaModel estacao = estacaoDeColetaService.cadastrar(estacaoDeColetaModel);
         return new ResponseEntity<>(estacao, HttpStatus.CREATED);
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity<EstacaoDeColetaModel> alterarEstacao(@RequestBody EstacaoDeColetaModel estacaoDeColetaModel) {
+    public ResponseEntity<PontoDeTrocaModel> alterarEstacao(@RequestBody PontoDeTrocaModel estacaoDeColetaModel) {
         return ResponseEntity.ok(estacaoDeColetaService.cadastrar(estacaoDeColetaModel));
     }
 

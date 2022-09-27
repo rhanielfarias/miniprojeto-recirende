@@ -9,9 +9,9 @@ import javax.validation.constraints.NotNull;
 
 @Data
 @NoArgsConstructor
-@Table(name = "estacao_coleta")
+@Table(name = "ponto_coleta")
 @Entity
-public class EstacaoDeColetaModel {
+public class PontoDeTrocaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

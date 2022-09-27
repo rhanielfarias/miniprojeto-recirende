@@ -1,7 +1,7 @@
 package com.catalisa.miniprojetorecirende.model.dto;
 
 
-import com.catalisa.miniprojetorecirende.model.EstacaoDeColetaModel;
+import com.catalisa.miniprojetorecirende.model.PontoDeTrocaModel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,7 +18,7 @@ public class EstacaoDeColetaDto {
     private String cidade;
     private String estado;
 
-    public EstacaoDeColetaDto(EstacaoDeColetaModel estacaoDeColetaModel) {
+    public EstacaoDeColetaDto(PontoDeTrocaModel estacaoDeColetaModel) {
         this.id = estacaoDeColetaModel.getId();
         this.razaoSocial = estacaoDeColetaModel.getRazaoSocial();
         this.nomeFantasia = estacaoDeColetaModel.getNomeFantasia();
@@ -27,7 +27,7 @@ public class EstacaoDeColetaDto {
         this.estado = estacaoDeColetaModel.getEstado();
     }
 
-    public static List<EstacaoDeColetaDto> convert(List<EstacaoDeColetaModel> estacaoDeColetaModels) {
+    public static List<EstacaoDeColetaDto> convert(List<PontoDeTrocaModel> estacaoDeColetaModels) {
         return estacaoDeColetaModels.stream().map(EstacaoDeColetaDto::new).collect(Collectors.toList());
     }
 }

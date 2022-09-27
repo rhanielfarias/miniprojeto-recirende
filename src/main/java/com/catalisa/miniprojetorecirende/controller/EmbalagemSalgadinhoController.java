@@ -35,7 +35,7 @@ public class EmbalagemSalgadinhoController {
     }
 
     @DeleteMapping(path = "/{id}")
-    public void deletarEmbalagem(@PathVariable UUID id) {
+    public void deletarEmbalagem(@PathVariable Long id) {
         embalagemSalgadinhoService.deletarEmbalagens(id);
     }
 }
