@@ -18,19 +18,6 @@ public class EstacaoDeColetaDto {
     private String cidade;
     private String estado;
 
-<<<<<<< HEAD
-    public EstacaoDeColetaDto(PontoDeTrocaModel estacaoDeColetaModel) {
-        this.id = estacaoDeColetaModel.getId();
-        this.razaoSocial = estacaoDeColetaModel.getRazaoSocial();
-        this.nomeFantasia = estacaoDeColetaModel.getNomeFantasia();
-        this.logradouro = estacaoDeColetaModel.getLogradouro();
-        this.cidade = estacaoDeColetaModel.getCidade();
-        this.estado = estacaoDeColetaModel.getEstado();
-    }
-
-    public static List<EstacaoDeColetaDto> convert(List<PontoDeTrocaModel> estacaoDeColetaModels) {
-        return estacaoDeColetaModels.stream().map(EstacaoDeColetaDto::new).collect(Collectors.toList());
-=======
     public EstacaoDeColetaDto(PontoDeTrocaModel pontoDeTrocaModel) {
         this.id = pontoDeTrocaModel.getId();
         this.razaoSocial = pontoDeTrocaModel.getRazaoSocial();
@@ -42,6 +29,5 @@ public class EstacaoDeColetaDto {
 
     public static List<EstacaoDeColetaDto> convert(List<PontoDeTrocaModel> pontoDeTrocaModels) {
         return pontoDeTrocaModels.stream().map(EstacaoDeColetaDto::new).collect(Collectors.toList());
->>>>>>> 1a2140476167589c7d933952877d0d3b0ea92c70
     }
 }

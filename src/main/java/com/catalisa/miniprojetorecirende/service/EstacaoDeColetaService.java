@@ -1,5 +1,6 @@
 package com.catalisa.miniprojetorecirende.service;
 
+import com.catalisa.miniprojetorecirende.enumerations.factory.EstadoFactory;
 import com.catalisa.miniprojetorecirende.model.PontoDeTrocaModel;
 import com.catalisa.miniprojetorecirende.model.dto.EstacaoDeColetaDto;
 import com.catalisa.miniprojetorecirende.repository.IEstacaoDeColetaRepository;
@@ -24,14 +25,9 @@ public class EstacaoDeColetaService {
         return iEstacaoDeColetaRepository.findById(id);
     }
 
-    public PontoDeTrocaModel cadastrar(PontoDeTrocaModel estacaoDeColetaModel) {
-        estacaoDeColetaModel.getId();
-        estacaoDeColetaModel.getRazaoSocial();
-        estacaoDeColetaModel.getNomeFantasia();
-        estacaoDeColetaModel.getCnpj();
-        estacaoDeColetaModel.getLogradouro();
-        estacaoDeColetaModel.getCidade();
-        estacaoDeColetaModel.getEstado().toUpperCase();
+    public PontoDeTrocaModel cadastrar(PontoDeTrocaModel estacaoDeColetaModel, EstadoFactory estadoFactory) {
+       String estado = String.valueOf(estadoFactory.estado(estacaoDeColetaModel.getEstado()));
+        estacaoDeColetaModel.setEstado(estado);
         return iEstacaoDeColetaRepository.save(estacaoDeColetaModel);
     }
 

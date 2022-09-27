@@ -26,32 +26,18 @@ public class EstacaoDeColetaController {
 
     @GetMapping(path = "/{id}")
     public ResponseEntity<Optional<PontoDeTrocaModel>> buscarIdColeta(@PathVariable Long id) {
-<<<<<<< HEAD
-        return ResponseEntity.ok(estacaoDeColetaService.buscarPorid(id));
-    }
-
-    @PostMapping
-    public ResponseEntity<PontoDeTrocaModel> cadastrarEstacaoDeColeta(@RequestBody @Valid PontoDeTrocaModel estacaoDeColetaModel) {
-        PontoDeTrocaModel estacao = estacaoDeColetaService.cadastrar(estacaoDeColetaModel);
-=======
         return ResponseEntity.ok(pontoDeTrocaService.buscarPorid(id));
     }
 
     @PostMapping
     public ResponseEntity<PontoDeTrocaModel> cadastrarEstacaoDeColeta(@RequestBody @Valid PontoDeTrocaModel pontoDeTrocaModel) {
         PontoDeTrocaModel estacao = pontoDeTrocaService.cadastrar(pontoDeTrocaModel);
->>>>>>> 1a2140476167589c7d933952877d0d3b0ea92c70
         return new ResponseEntity<>(estacao, HttpStatus.CREATED);
     }
 
     @PutMapping(path = "/{id}")
-<<<<<<< HEAD
-    public ResponseEntity<PontoDeTrocaModel> alterarEstacao(@RequestBody PontoDeTrocaModel estacaoDeColetaModel) {
-        return ResponseEntity.ok(estacaoDeColetaService.cadastrar(estacaoDeColetaModel));
-=======
     public ResponseEntity<PontoDeTrocaModel> alterarEstacao(@RequestBody PontoDeTrocaModel pontoDeTrocaModel) {
         return ResponseEntity.ok(pontoDeTrocaService.cadastrar(pontoDeTrocaModel));
->>>>>>> 1a2140476167589c7d933952877d0d3b0ea92c70
     }
 
     @DeleteMapping(path = "/{id}")

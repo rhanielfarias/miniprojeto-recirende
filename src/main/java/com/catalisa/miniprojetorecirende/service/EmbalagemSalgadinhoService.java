@@ -2,6 +2,7 @@ package com.catalisa.miniprojetorecirende.service;
 
 import com.catalisa.miniprojetorecirende.enumerations.Marcas;
 import com.catalisa.miniprojetorecirende.model.EmbalagemSalgadinhoModel;
+import com.catalisa.miniprojetorecirende.model.PontoDeTrocaModel;
 import com.catalisa.miniprojetorecirende.repository.IEmbalagemSalgadinho;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,8 @@ public class EmbalagemSalgadinhoService {
     public EmbalagemSalgadinhoModel cadastrarEmbalagens(EmbalagemSalgadinhoModel embalagemSalgadinhoModel) {
         //EmbalagemSalgadinhoModel saldoAtualizado = embalagemSalgadinhoModel.setSaldoDePontos(1500);
        embalagemSalgadinhoModel.setPontos(1500);
+       embalagemSalgadinhoModel.getPontoDeTrocaModel().getId();
+
         return iEmbalagemSalgadinho.save(embalagemSalgadinhoModel);
     }
 
