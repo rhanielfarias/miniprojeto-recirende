@@ -1,7 +1,7 @@
 package com.catalisa.miniprojetorecirende.model.dto;
 
 
-import com.catalisa.miniprojetorecirende.model.EstacaoDeColetaModel;
+import com.catalisa.miniprojetorecirende.model.PontoDeTrocaModel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,16 +18,16 @@ public class EstacaoDeColetaDto {
     private String cidade;
     private String estado;
 
-    public EstacaoDeColetaDto(EstacaoDeColetaModel estacaoDeColetaModel) {
-        this.id = estacaoDeColetaModel.getId();
-        this.razaoSocial = estacaoDeColetaModel.getRazaoSocial();
-        this.nomeFantasia = estacaoDeColetaModel.getNomeFantasia();
-        this.logradouro = estacaoDeColetaModel.getLogradouro();
-        this.cidade = estacaoDeColetaModel.getCidade();
-        this.estado = estacaoDeColetaModel.getEstado();
+    public EstacaoDeColetaDto(PontoDeTrocaModel pontoDeTrocaModel) {
+        this.id = pontoDeTrocaModel.getId();
+        this.razaoSocial = pontoDeTrocaModel.getRazaoSocial();
+        this.nomeFantasia = pontoDeTrocaModel.getNomeFantasia();
+        this.logradouro = pontoDeTrocaModel.getLogradouro();
+        this.cidade = pontoDeTrocaModel.getCidade();
+        this.estado = pontoDeTrocaModel.getEstado();
     }
 
-    public static List<EstacaoDeColetaDto> convert(List<EstacaoDeColetaModel> estacaoDeColetaModels) {
-        return estacaoDeColetaModels.stream().map(EstacaoDeColetaDto::new).collect(Collectors.toList());
+    public static List<EstacaoDeColetaDto> convert(List<PontoDeTrocaModel> pontoDeTrocaModels) {
+        return pontoDeTrocaModels.stream().map(EstacaoDeColetaDto::new).collect(Collectors.toList());
     }
 }

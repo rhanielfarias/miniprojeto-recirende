@@ -21,4 +21,8 @@ public class EmbalagemSalgadinhoModel {
     @Column(nullable = false, length = 12)
     private String marcaSalgadinho;
 
+
+    @ManyToOne
+    @JoinColumn(name = "ponto_de_Coleta_id", referencedColumnName = "id")
+    private PontoDeTrocaModel pontoDeTrocaModel;
 }
