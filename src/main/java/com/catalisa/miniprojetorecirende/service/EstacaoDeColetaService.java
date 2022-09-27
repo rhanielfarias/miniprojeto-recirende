@@ -15,7 +15,7 @@ public class EstacaoDeColetaService {
     @Autowired
     IEstacaoDeColetaRepository iEstacaoDeColetaRepository;
 
-    public List<EstacaoDeColetaDto> listaDeEstacao(){
+    public List<EstacaoDeColetaDto> listaDeEstacao() {
         List<EstacaoDeColetaModel> estacao = iEstacaoDeColetaRepository.findAll();
         return EstacaoDeColetaDto.convert(estacao);
     }
@@ -24,7 +24,7 @@ public class EstacaoDeColetaService {
         return iEstacaoDeColetaRepository.findById(id);
     }
 
-    public EstacaoDeColetaModel cadastrar(EstacaoDeColetaModel estacaoDeColetaModel){
+    public EstacaoDeColetaModel cadastrar(EstacaoDeColetaModel estacaoDeColetaModel) {
         estacaoDeColetaModel.getId();
         estacaoDeColetaModel.getRazaoSocial();
         estacaoDeColetaModel.getNomeFantasia();
@@ -35,5 +35,7 @@ public class EstacaoDeColetaService {
         return iEstacaoDeColetaRepository.save(estacaoDeColetaModel);
     }
 
-    public void deletarcadastro(Long id){iEstacaoDeColetaRepository.deleteById(id);}
+    public void deletarcadastro(Long id) {
+        iEstacaoDeColetaRepository.deleteById(id);
+    }
 }

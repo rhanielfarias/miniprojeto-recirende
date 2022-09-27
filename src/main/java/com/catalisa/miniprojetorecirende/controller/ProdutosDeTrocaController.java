@@ -18,28 +18,28 @@ public class ProdutosDeTrocaController {
     private ProdutoDeTrocaService produtoDeTrocaService;
 
     @PostMapping
-    public ResponseEntity<ProdutoDeTrocaModel> cadastrarProdutoDeTroca(@RequestBody ProdutoDeTrocaModel produtoDeTrocaModel){
+    public ResponseEntity<ProdutoDeTrocaModel> cadastrarProdutoDeTroca(@RequestBody ProdutoDeTrocaModel produtoDeTrocaModel) {
         ProdutoDeTrocaModel produtosDeTroca = produtoDeTrocaService.cadastrarProdutoDeTroca(produtoDeTrocaModel);
         return new ResponseEntity<>(produtosDeTroca, HttpStatus.CREATED);
     }
 
     @GetMapping
-    public ResponseEntity<List<ProdutoDeTrocaModel>> exibirProdutosDeTroca(){
+    public ResponseEntity<List<ProdutoDeTrocaModel>> exibirProdutosDeTroca() {
         return ResponseEntity.ok(produtoDeTrocaService.exibirTodosProdutosDeTroca());
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<Optional<ProdutoDeTrocaModel>> exibirProdutosDeTrocaViaId(@PathVariable Long id){
+    public ResponseEntity<Optional<ProdutoDeTrocaModel>> exibirProdutosDeTrocaViaId(@PathVariable Long id) {
         return ResponseEntity.ok(produtoDeTrocaService.exibirProdutosDeTrocaViaId(id));
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity<ProdutoDeTrocaModel> alterarProdutosDeTroca(@RequestBody ProdutoDeTrocaModel produtoDeTrocaModel){
+    public ResponseEntity<ProdutoDeTrocaModel> alterarProdutosDeTroca(@RequestBody ProdutoDeTrocaModel produtoDeTrocaModel) {
         return ResponseEntity.ok(produtoDeTrocaService.alterarProdutosDeTroca(produtoDeTrocaModel));
     }
 
     @DeleteMapping(path = "/{id}")
-    public void deleterProdutoDeTroca(@PathVariable Long id){
+    public void deleterProdutoDeTroca(@PathVariable Long id) {
         produtoDeTrocaService.deletarProdutoDeTroca(id);
     }
 }

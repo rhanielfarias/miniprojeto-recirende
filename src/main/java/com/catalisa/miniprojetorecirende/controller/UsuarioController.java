@@ -17,10 +17,11 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-@GetMapping(path = "/usuario")
-public ResponseEntity<List<UsuarioSaidaDto>> buscarTodos () {
-    return  ResponseEntity.ok(usuarioService.buscarPorTodos());
-}
+    @GetMapping(path = "/usuario")
+    public ResponseEntity<List<UsuarioSaidaDto>> buscarTodos() {
+        return ResponseEntity.ok(usuarioService.buscarPorTodos());
+    }
+
     @GetMapping(path = "/usuario/{codigo}")
     public ResponseEntity<Optional<UsuarioModel>> buscarId(@PathVariable Integer codigo) {
         return ResponseEntity.ok(usuarioService.buscarId(codigo));

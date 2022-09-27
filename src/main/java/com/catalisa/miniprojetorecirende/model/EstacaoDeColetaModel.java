@@ -16,16 +16,21 @@ public class EstacaoDeColetaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column @NotNull
+    @Column
+    @NotNull
     private String razaoSocial;
     @Column
     private String nomeFantasia;
-    @Column @NotNull @CNPJ
+    @Column
+    @NotNull
+    @CNPJ
     private String cnpj;
-    @Column @NotNull
+    @Column
+    @NotNull
     private String Logradouro;
     @Column
     private String cidade;
-    @Column @NotNull
+    @Column
+    @NotNull
     private String estado;
 }

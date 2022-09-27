@@ -16,26 +16,26 @@ import java.util.UUID;
 public class EmbalagemSalgadinhoController {
 
     @Autowired
-     private EmbalagemSalgadinhoService embalagemSalgadinhoService;
+    private EmbalagemSalgadinhoService embalagemSalgadinhoService;
 
     @PostMapping
-    public ResponseEntity<EmbalagemSalgadinhoModel> cadastrarProdutoDeTroca(@RequestBody EmbalagemSalgadinhoModel embalagemSalgadinhoModel){
+    public ResponseEntity<EmbalagemSalgadinhoModel> cadastrarProdutoDeTroca(@RequestBody EmbalagemSalgadinhoModel embalagemSalgadinhoModel) {
         EmbalagemSalgadinhoModel embalagemSalgadinho = embalagemSalgadinhoService.cadastrarEmbalagens(embalagemSalgadinhoModel);
         return new ResponseEntity<>(embalagemSalgadinho, HttpStatus.CREATED);
     }
 
     @GetMapping
-    public ResponseEntity<List<EmbalagemSalgadinhoModel>> exibirTodasEmbalagens(){
+    public ResponseEntity<List<EmbalagemSalgadinhoModel>> exibirTodasEmbalagens() {
         return ResponseEntity.ok(embalagemSalgadinhoService.exibirListaDeEmbalagens());
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity<EmbalagemSalgadinhoModel> alterarEmbalagens(@RequestBody EmbalagemSalgadinhoModel embalagemSalgadinhoModel){
+    public ResponseEntity<EmbalagemSalgadinhoModel> alterarEmbalagens(@RequestBody EmbalagemSalgadinhoModel embalagemSalgadinhoModel) {
         return ResponseEntity.ok(embalagemSalgadinhoService.alterarEmbalagens(embalagemSalgadinhoModel));
     }
 
     @DeleteMapping(path = "/{id}")
-    public void deletarEmbalagem(@PathVariable UUID id){
+    public void deletarEmbalagem(@PathVariable UUID id) {
         embalagemSalgadinhoService.deletarEmbalagens(id);
     }
 }

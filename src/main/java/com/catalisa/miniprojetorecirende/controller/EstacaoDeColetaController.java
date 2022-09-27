@@ -1,7 +1,6 @@
 package com.catalisa.miniprojetorecirende.controller;
 
 import com.catalisa.miniprojetorecirende.model.EstacaoDeColetaModel;
-import com.catalisa.miniprojetorecirende.model.ProdutoDeTrocaModel;
 import com.catalisa.miniprojetorecirende.model.dto.EstacaoDeColetaDto;
 import com.catalisa.miniprojetorecirende.service.EstacaoDeColetaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,15 +20,17 @@ public class EstacaoDeColetaController {
     EstacaoDeColetaService estacaoDeColetaService;
 
     @GetMapping
-    public ResponseEntity<List<EstacaoDeColetaDto>> mostrarEstacoes(){return  ResponseEntity.ok(estacaoDeColetaService.listaDeEstacao());}
+    public ResponseEntity<List<EstacaoDeColetaDto>> mostrarEstacoes() {
+        return ResponseEntity.ok(estacaoDeColetaService.listaDeEstacao());
+    }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<Optional<EstacaoDeColetaModel>> buscarIdColeta(@PathVariable Long id){
+    public ResponseEntity<Optional<EstacaoDeColetaModel>> buscarIdColeta(@PathVariable Long id) {
         return ResponseEntity.ok(estacaoDeColetaService.buscarPorid(id));
     }
 
     @PostMapping
-    public ResponseEntity<EstacaoDeColetaModel> cadastrarEstacaoDeColeta(@RequestBody @Valid EstacaoDeColetaModel estacaoDeColetaModel){
+    public ResponseEntity<EstacaoDeColetaModel> cadastrarEstacaoDeColeta(@RequestBody @Valid EstacaoDeColetaModel estacaoDeColetaModel) {
         EstacaoDeColetaModel estacao = estacaoDeColetaService.cadastrar(estacaoDeColetaModel);
         return new ResponseEntity<>(estacao, HttpStatus.CREATED);
     }
@@ -38,8 +39,9 @@ public class EstacaoDeColetaController {
     public ResponseEntity<EstacaoDeColetaModel> alterarEstacao(@RequestBody EstacaoDeColetaModel estacaoDeColetaModel) {
         return ResponseEntity.ok(estacaoDeColetaService.cadastrar(estacaoDeColetaModel));
     }
+
     @DeleteMapping(path = "/{id}")
-    public void deletarEstacao(@PathVariable Long id){
+    public void deletarEstacao(@PathVariable Long id) {
         estacaoDeColetaService.deletarcadastro(id);
     }
 }
