@@ -1,6 +1,7 @@
 package com.catalisa.miniprojetorecirende.controller;
 
 import com.catalisa.miniprojetorecirende.model.UsuarioModel;
+import com.catalisa.miniprojetorecirende.model.UsuarioSaidaDto;
 import com.catalisa.miniprojetorecirende.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,7 +18,7 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
 @GetMapping(path = "/usuario")
-public ResponseEntity<List<UsuarioModel>> buscarTodos () {
+public ResponseEntity<List<UsuarioSaidaDto>> buscarTodos () {
     return  ResponseEntity.ok(usuarioService.buscarPorTodos());
 }
     @GetMapping(path = "/usuario/{codigo}")

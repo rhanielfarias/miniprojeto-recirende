@@ -17,18 +17,26 @@ import java.time.LocalDate;
 public class UsuarioModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Integer codigo;
-@NotBlank(message ="Obrigatório por o nome")
-    private  String nomeUsuario;
+    private Integer codigo;
+    @NotBlank(message = "Obrigatório por o nome")
+    private String nomeUsuario;
 
-@Column
+    @Column
     private LocalDate dataNascimento;
 
     @CPF
-    private  String cpf;
-@Email
-private String email;
+    private String cpf;
+    @Email
+    private String email;
 
-@Column(length =10 )
-private  long telefone;
+    @Column(length = 10)
+    private long telefone;
+
+    public UsuarioModel(String nomeUsuario, LocalDate dataNascimento, String cpf, String email, long telefone) {
+        this.nomeUsuario = nomeUsuario;
+        this.dataNascimento = dataNascimento;
+        this.cpf = cpf;
+        this.email = email;
+        this.telefone = telefone;
+    }
 }
