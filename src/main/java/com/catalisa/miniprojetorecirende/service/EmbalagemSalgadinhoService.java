@@ -1,5 +1,6 @@
 package com.catalisa.miniprojetorecirende.service;
 
+import com.catalisa.miniprojetorecirende.enumerations.Marcas;
 import com.catalisa.miniprojetorecirende.model.EmbalagemSalgadinhoModel;
 import com.catalisa.miniprojetorecirende.repository.IEmbalagemSalgadinho;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,11 @@ public class EmbalagemSalgadinhoService {
     @Autowired
     private IEmbalagemSalgadinho iEmbalagemSalgadinho;
 
+    //public Marcas
+
     public EmbalagemSalgadinhoModel cadastrarEmbalagens(EmbalagemSalgadinhoModel embalagemSalgadinhoModel) {
+        //EmbalagemSalgadinhoModel saldoAtualizado = embalagemSalgadinhoModel.setSaldoDePontos(1500);
+       embalagemSalgadinhoModel.setPontos(1500);
         return iEmbalagemSalgadinho.save(embalagemSalgadinhoModel);
     }
 

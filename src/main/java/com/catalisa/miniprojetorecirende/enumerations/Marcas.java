@@ -6,6 +6,7 @@ public enum Marcas {
     LAYS,
     FANDANGOS,
     RUFFLES,
-    DORITOS
+    DORITOS,
+    OUTROS
 
 }
