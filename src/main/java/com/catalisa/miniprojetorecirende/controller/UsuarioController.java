@@ -1,6 +1,8 @@
 package com.catalisa.miniprojetorecirende.controller;
 
 import com.catalisa.miniprojetorecirende.model.UsuarioModel;
+import com.catalisa.miniprojetorecirende.model.dto.EstacaoDeColetaDto;
+import com.catalisa.miniprojetorecirende.model.dto.UsuariosDto;
 import com.catalisa.miniprojetorecirende.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,8 +29,8 @@ public class UsuarioController {
     }
 
     @GetMapping
-    public ResponseEntity<List<UsuarioModel>> exibirUsuariosCadastrados() {
-        return ResponseEntity.ok(usuarioService.exibirUsuarios());
+    public ResponseEntity<List<UsuariosDto>> mostrarUsuarios() {
+        return ResponseEntity.ok(usuarioService.listaDeUsuario());
     }
 
     @GetMapping(path = "/{id}")

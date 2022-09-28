@@ -1,6 +1,9 @@
 package com.catalisa.miniprojetorecirende.service;
 
+import com.catalisa.miniprojetorecirende.model.PontoDeTrocaModel;
 import com.catalisa.miniprojetorecirende.model.UsuarioModel;
+import com.catalisa.miniprojetorecirende.model.dto.EstacaoDeColetaDto;
+import com.catalisa.miniprojetorecirende.model.dto.UsuariosDto;
 import com.catalisa.miniprojetorecirende.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,8 +28,9 @@ public class UsuarioService {
         return usuarioRepository.save(usuarioModel);
     }
 
-    public List<UsuarioModel> exibirUsuarios() {
-        return usuarioRepository.findAll();
+    public List<UsuariosDto> listaDeUsuario() {
+        List<UsuarioModel> usuarios = usuarioRepository.findAll();
+        return UsuariosDto.convert(usuarios);
     }
 
     public Optional<UsuarioModel> buscarId(Long id) {

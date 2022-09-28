@@ -36,11 +36,6 @@ public class PontoDeTrocaModel {
     @Column
     @NotNull
     private String estado;
-    @Column
-    private Integer qntEmbalagens;
-    @Column
-    private Double pntsDistribuidos;
-
 //    @JsonIgnore
 //    @OneToMany(mappedBy = "pontoDeTrocaModel",cascade = CascadeType.ALL)
 //    private List<EmbalagemSalgadinhoModel> embalagemSalgadinhoModels;
