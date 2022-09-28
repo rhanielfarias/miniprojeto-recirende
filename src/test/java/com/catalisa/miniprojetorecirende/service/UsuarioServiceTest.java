@@ -43,7 +43,7 @@ public class UsuarioServiceTest {
 
 
     @Test
-    @DisplayName("O teste deve retornar true, pois nenhuma usuario foi cadastrada")
+    @DisplayName("O teste deve retornar true, pois nenhum usuario foi cadastrada")
     void testeDeExibicaoDeUsuario() {
         List<UsuarioModel> exibirUsuarios = usuarioService.exibirUsuarios();
         Assertions.assertTrue(exibirUsuarios.isEmpty());

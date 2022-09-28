@@ -15,7 +15,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import java.util.List;
 
 @SpringBootTest
-public class EmbalagemTest {
+public class EmbalagemServiceTest {
 
     @Mock
     EmbalagemSalgadinhoService embalagemSalgadinhoService;
