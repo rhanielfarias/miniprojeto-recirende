@@ -14,15 +14,12 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    //  public int calcularPontuação(UsuarioModel usuarioModel) {
-//        ArrayList arrayList = new ArrayList();
-//        List<UsuarioModel> objetos = usuarioRepository.findAll();
-//        int size = objetos.size() * 1500;
-//        return  size;
-//    }
 
+    public UsuarioModel cadastrar(UsuarioModel usuarioModel) {
+        return usuarioRepository.save(usuarioModel);
+    }
 
-    public List<UsuarioModel> buscarPorTodos() {
+    public List<UsuarioModel> exibirUsuarios() {
         return usuarioRepository.findAll();
     }
 
@@ -30,12 +27,8 @@ public class UsuarioService {
         return usuarioRepository.findById(id);
     }
 
-    public UsuarioModel cadastrar(UsuarioModel usuarioModel) {
+    public UsuarioModel alterarUsuarioCadastrado(UsuarioModel usuarioModel) {
         return usuarioRepository.save(usuarioModel);
-    }
-
-    public UsuarioModel alterar(UsuarioModel usuario, Long id) {
-        return usuarioRepository.save(usuario);
     }
 
     public void deletar(Long id) {

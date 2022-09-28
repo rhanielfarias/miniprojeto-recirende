@@ -13,31 +13,32 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "/usuarios")
 @Validated
+@RequestMapping(path = "/usuarios")
 public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-    @GetMapping
-    public ResponseEntity<List<UsuarioModel>> buscarTodos() {
-        return ResponseEntity.ok(usuarioService.buscarPorTodos());
-    }
-
-    @GetMapping(path = "/{id}")
-    public ResponseEntity<Optional<UsuarioModel>> buscarId(@PathVariable Long id) {
-        return ResponseEntity.ok(usuarioService.buscarId(id));
-    }
-
     @PostMapping
-    public ResponseEntity<UsuarioModel> cadastrarUsuario(@RequestBody @Valid UsuarioModel usuarioModel) {
+    public ResponseEntity<UsuarioModel> cadastrarUsuario(@Valid @RequestBody UsuarioModel usuarioModel) {
         UsuarioModel usuario = usuarioService.cadastrar(usuarioModel);
         return new ResponseEntity<>(usuario, HttpStatus.CREATED);
     }
 
+    @GetMapping
+    public ResponseEntity<List<UsuarioModel>> exibirUsuariosCadastrados() {
+        return ResponseEntity.ok(usuarioService.exibirUsuarios());
+    }
+
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<Optional<UsuarioModel>> buscarViaId(@PathVariable Long id) {
+        return ResponseEntity.ok(usuarioService.buscarId(id));
+    }
+
+
     @PutMapping(path = "/{id}")
-    public ResponseEntity<UsuarioModel> alterarUsuario(@RequestBody UsuarioModel usuario, @PathVariable Long id) {
-        return ResponseEntity.ok(usuarioService.alterar(usuario, id));
+    public ResponseEntity<UsuarioModel> alterarUsuario(@Valid @RequestBody UsuarioModel usuarioModel) {
+        return ResponseEntity.ok(usuarioService.alterarUsuarioCadastrado(usuarioModel));
     }
 
     @DeleteMapping(path = "/{id}")

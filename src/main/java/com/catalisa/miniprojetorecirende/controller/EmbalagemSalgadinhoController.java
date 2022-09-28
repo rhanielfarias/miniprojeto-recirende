@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/embalagens")
@@ -26,6 +27,11 @@ public class EmbalagemSalgadinhoController {
     @GetMapping
     public ResponseEntity<List<EmbalagemSalgadinhoModel>> exibirTodasEmbalagens() {
         return ResponseEntity.ok(embalagemSalgadinhoService.exibirListaDeEmbalagens());
+    }
+
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<Optional<EmbalagemSalgadinhoModel>> exibirEmbalagemViaId(@PathVariable Long id) {
+        return ResponseEntity.ok(embalagemSalgadinhoService.buscarEmbalagemViaId(id));
     }
 
     @PutMapping(path = "/{id}")
