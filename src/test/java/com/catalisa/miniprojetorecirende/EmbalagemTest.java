@@ -3,7 +3,6 @@ package com.catalisa.miniprojetorecirende;
 import com.catalisa.miniprojetorecirende.model.EmbalagemSalgadinhoModel;
 import com.catalisa.miniprojetorecirende.repository.IEmbalagemSalgadinho;
 import com.catalisa.miniprojetorecirende.service.EmbalagemSalgadinhoService;
-import lombok.AllArgsConstructor;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,7 +14,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.List;
 
-@AllArgsConstructor
 @SpringBootTest
 public class EmbalagemTest {
 
@@ -27,11 +25,11 @@ public class EmbalagemTest {
 
     private EmbalagemSalgadinhoModel embalagemSalgadinhoModel;
 
-//    @BeforeEach
-//    private void inicializador(){
-//        MockitoAnnotations.openMocks(this);
-//        embalagemSalgadinhoModel = new EmbalagemSalgadinhoModel(1L, "Doritos", "12345678", 1500);
-//    }
+    @BeforeEach
+    private void inicializador(){
+        MockitoAnnotations.openMocks(this);
+        embalagemSalgadinhoModel = new EmbalagemSalgadinhoModel();
+    }
 
     @Test
     void exibirListaDeEmbalagensTest(){
