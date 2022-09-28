@@ -1,5 +1,6 @@
 package com.catalisa.miniprojetorecirende.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,6 +11,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
@@ -34,6 +36,11 @@ public class UsuarioModel {
 
     @Column(length = 10)
     private long telefone;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private List<EmbalagemSalgadinhoModel> qtdEmbalagem;
+    private int total = qtdEmbalagem.size() * 1500;
 
     public UsuarioModel(String nomeUsuario, LocalDate dataNascimento, String cpf, String email, long telefone) {
         this.nomeUsuario = nomeUsuario;

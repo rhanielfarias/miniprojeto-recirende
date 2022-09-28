@@ -6,6 +6,7 @@ import com.catalisa.miniprojetorecirende.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,6 +15,14 @@ public class UsuarioService {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
+
+    //  public int calcularPontuação(UsuarioModel usuarioModel) {
+//        ArrayList arrayList = new ArrayList();
+//        List<UsuarioModel> objetos = usuarioRepository.findAll();
+//        int size = objetos.size() * 1500;
+//        return  size;
+//    }
+
 
     public List<UsuarioSaidaDto> buscarPorTodos() {
         List<UsuarioModel> usuarioModels = usuarioRepository.findAll();
