@@ -39,7 +39,7 @@ public class PontoDeTrocaModel {
     @Column
     private Integer qntEmbalagens;
     @Column
-    private BigDecimal pntsDistribuidos;
+    private Double pntsDistribuidos;
 
     @JsonIgnore
     @OneToMany(mappedBy = "pontoDeTrocaModel",cascade = CascadeType.ALL)

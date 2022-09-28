@@ -7,6 +7,7 @@ import com.catalisa.miniprojetorecirende.repository.IEmbalagemSalgadinho;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -21,9 +22,9 @@ public class EmbalagemSalgadinhoService {
 
     public EmbalagemSalgadinhoModel cadastrarEmbalagens(EmbalagemSalgadinhoModel embalagemSalgadinhoModel) {
         //EmbalagemSalgadinhoModel saldoAtualizado = embalagemSalgadinhoModel.setSaldoDePontos(1500);
-       embalagemSalgadinhoModel.setPontos(1500);
        embalagemSalgadinhoModel.getPontoDeTrocaModel().getId();
-
+       Double soma = embalagemSalgadinhoModel.getPontoDeTrocaModel().getPntsDistribuidos() +1500;
+       embalagemSalgadinhoModel.getPontoDeTrocaModel().setPntsDistribuidos(soma);
         return iEmbalagemSalgadinho.save(embalagemSalgadinhoModel);
     }
 
