@@ -69,4 +69,11 @@ public class UsuarioServiceTest {
         usuarioService.deletar(1L);
         Assertions.assertTrue(true);
     }
+
+    @Test
+    @DisplayName("O teste deve retornar true, se o metodo de incrementar pontos por id estiver funcionando corretamente")
+    void testeDeIncrementarPontos() {
+        usuarioService.incrementaPontos(usuarioModel, 2000);
+        Assertions.assertTrue(true);
+    }
 }
