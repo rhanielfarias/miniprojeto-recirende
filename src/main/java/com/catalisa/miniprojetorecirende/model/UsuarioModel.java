@@ -42,7 +42,7 @@ public class UsuarioModel {
     private String email;
 
     @Column(name = "telefone_usuario", length = 30, nullable = false)
-    private long telefone;
+    private String telefone;
 
 
     @JsonIgnore
