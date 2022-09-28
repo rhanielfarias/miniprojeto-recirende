@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping(path = "/embalagens")
@@ -19,8 +18,8 @@ public class EmbalagemSalgadinhoController {
     private EmbalagemSalgadinhoService embalagemSalgadinhoService;
 
     @PostMapping
-    public ResponseEntity<EmbalagemSalgadinhoModel> cadastrarProdutoDeTroca(@PathVariable @RequestBody EmbalagemSalgadinhoModel embalagemSalgadinhoModel, Long id) {
-        EmbalagemSalgadinhoModel embalagemSalgadinho = embalagemSalgadinhoService.cadastrarEmbalagens(embalagemSalgadinhoModel, id);
+    public ResponseEntity<EmbalagemSalgadinhoModel> cadastrarProdutoDeTroca(@RequestBody EmbalagemSalgadinhoModel embalagemSalgadinhoModel) {
+        EmbalagemSalgadinhoModel embalagemSalgadinho = embalagemSalgadinhoService.cadastrarEmbalagens(embalagemSalgadinhoModel);
         return new ResponseEntity<>(embalagemSalgadinho, HttpStatus.CREATED);
     }
 

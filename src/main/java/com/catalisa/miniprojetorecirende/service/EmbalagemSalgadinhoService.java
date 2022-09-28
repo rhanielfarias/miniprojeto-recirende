@@ -23,16 +23,16 @@ public class EmbalagemSalgadinhoService {
         return iEmbalagemSalgadinho.existsByNumeroDeSerie(numeroDeSerie);
     }
 
-    public EmbalagemSalgadinhoModel cadastrarEmbalagens(EmbalagemSalgadinhoModel embalagemSalgadinhoModel, Long id) {
+    public EmbalagemSalgadinhoModel cadastrarEmbalagens(EmbalagemSalgadinhoModel embalagemSalgadinhoModel) {
 
-        Optional<EmbalagemSalgadinhoModel> optionalEmbalagemSalgadinhoModel = iEmbalagemSalgadinho.findById(id);
-        if (optionalEmbalagemSalgadinhoModel.isEmpty()) {
-            throw new RuntimeException("Erro: este usuário não foi encontrado no sistema");
-        }
-
-        EmbalagemSalgadinhoModel salgadinhoModel = optionalEmbalagemSalgadinhoModel.get();
-//        Status statusInfo = contas.getStatus();
-//        contaCarregada.setStatus(statusInfo);
+//        Optional<EmbalagemSalgadinhoModel> optionalEmbalagemSalgadinhoModel = iEmbalagemSalgadinho.findById(id);
+//        if (optionalEmbalagemSalgadinhoModel.isEmpty()) {
+//            throw new RuntimeException("Erro: este usuário não foi encontrado no sistema");
+//        }
+//
+//        EmbalagemSalgadinhoModel salgadinhoModel = optionalEmbalagemSalgadinhoModel.get();
+////        Status statusInfo = contas.getStatus();
+////        contaCarregada.setStatus(statusInfo);
 
         return iEmbalagemSalgadinho.save(embalagemSalgadinhoModel);
 

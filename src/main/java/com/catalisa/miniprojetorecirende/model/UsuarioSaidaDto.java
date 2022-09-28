@@ -15,15 +15,15 @@ public class UsuarioSaidaDto {
     private LocalDate dataNascimento;
     private String email;
 
-    public UsuarioSaidaDto(UsuarioModel usuarioModel) {
-        this.codigo = usuarioModel.getId();
-        this.nomeUsuario = usuarioModel.getNomeUsuario();
-        this.dataNascimento = usuarioModel.getDataNascimento();
-        this.email = usuarioModel.getEmail();
-    }
+//    public UsuarioSaidaDto(UsuarioModel usuarioModel) {
+//        this.codigo = usuarioModel.getId();
+//        this.nomeUsuario = usuarioModel.getNomeUsuario();
+//        this.dataNascimento = usuarioModel.getDataNascimento();
+//        this.email = usuarioModel.getEmail();
+//    }
 
-    public static List<UsuarioSaidaDto> converter(List<UsuarioModel> usuarioModels) {
-        return usuarioModels.stream().map(UsuarioSaidaDto::new).collect(Collectors.toList());
-
-    }
+//    public static List<UsuarioSaidaDto> converter(List<UsuarioModel> usuarioModels) {
+//        return usuarioModels.stream().map(UsuarioSaidaDto::new).collect(Collectors.toList());
+//
+//    }
 }

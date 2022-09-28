@@ -41,7 +41,7 @@ public class PontoDeTrocaModel {
     @Column
     private Double pntsDistribuidos;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "pontoDeTrocaModel",cascade = CascadeType.ALL)
-    private List<EmbalagemSalgadinhoModel> embalagemSalgadinhoModels;
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "pontoDeTrocaModel",cascade = CascadeType.ALL)
+//    private List<EmbalagemSalgadinhoModel> embalagemSalgadinhoModels;
 }

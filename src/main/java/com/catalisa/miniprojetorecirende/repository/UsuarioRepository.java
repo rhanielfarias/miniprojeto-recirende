@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.query.Jpa21Utils;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UsuarioRepository extends JpaRepository<UsuarioModel, Integer> {
+public interface UsuarioRepository extends JpaRepository<UsuarioModel, Long> {
 }

@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.UUID;
 
 @Data
 @NoArgsConstructor
@@ -18,22 +17,25 @@ public class EmbalagemSalgadinhoModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 12)
+    @Column(name = "marca_salgadinho_embalagem", length = 12, nullable = false)
     private String marcaSalgadinho;
 
 
-    @Column(nullable = false, length = 8) //tamanho maximo de número de série de 8 digitos
+    @Column(name = "numero_de_serie_embalagem", length = 8, nullable = false)
+    //tamanho maximo de número de série de 8 digitos
     private String numeroDeSerie;
 
-    @Column
-    private Integer pontos;
 
-    @ManyToOne
-    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
-    private UsuarioModel usuarioModel;
 
-    @ManyToOne
-    @JoinColumn(name = "ponto_coleta_id", referencedColumnName = "id")
-    private PontoDeTrocaModel pontoDeTrocaModel;
+//    @Column
+//    private Integer pontos;
+//
+//    @ManyToOne
+//    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
+//    private UsuarioModel usuarioModel;
+
+//    @ManyToOne
+//    @JoinColumn(name = "ponto_coleta_id", referencedColumnName = "id")
+//    private PontoDeTrocaModel pontoDeTrocaModel;
 
 }
