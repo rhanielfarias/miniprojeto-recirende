@@ -1,8 +1,9 @@
 package com.catalisa.miniprojetorecirende.service;
 
+import com.catalisa.miniprojetorecirende.model.ProdutoDeTrocaModel;
 import com.catalisa.miniprojetorecirende.model.UsuarioModel;
 import com.catalisa.miniprojetorecirende.model.dto.UsuariosDto;
-import com.catalisa.miniprojetorecirende.repository.UsuarioRepository;
+import com.catalisa.miniprojetorecirende.repository.IProdutoDeTrocaRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -16,63 +17,54 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import java.util.List;
 
 @SpringBootTest
-public class UsuarioServiceTest {
+public class ProdutoDeTrocaServiceTest {
 
     @Mock
-    UsuarioService usuarioService;
+    ProdutoDeTrocaService produtoDeTrocaService;
 
     @MockBean
-    UsuarioRepository usuarioRepository;
+    IProdutoDeTrocaRepository iProdutoDeTrocaRepository;
 
-    private UsuarioModel usuarioModel;
+    private ProdutoDeTrocaModel produtoDeTrocaModel;
 
     @BeforeEach
     private void inicializador() {
         MockitoAnnotations.openMocks(this);
-        usuarioModel = new UsuarioModel();
+        produtoDeTrocaModel = new ProdutoDeTrocaModel();
     }
 
     @Test
     @DisplayName("Testando o metodo de cadastrar")
-    void testeSeCadastroDeUsuarioEstaFuncionando() {
-        usuarioRepository.save(usuarioModel);
-        Mockito.when(usuarioRepository.existsById(Mockito.anyLong())).thenReturn(true);
-        Mockito.verify(usuarioRepository, Mockito.times(1)).save(usuarioModel);
+    void testeSeCadastroDeProduto() {
+        iProdutoDeTrocaRepository.save(produtoDeTrocaModel);
+        Mockito.when(iProdutoDeTrocaRepository.existsById(Mockito.anyLong())).thenReturn(true);
+        Mockito.verify(iProdutoDeTrocaRepository, Mockito.times(1)).save(produtoDeTrocaModel);
     }
-
 
     @Test
     @DisplayName("O teste deve retornar true, pois nenhum usuario foi cadastrada")
-    void testeDeExibicaoDeUsuario() {
-        List<UsuariosDto> exibirUsuarios = usuarioService.listaDeUsuario();
+    void testeDeExibicaoDeproduto() {
+        List<ProdutoDeTrocaModel> exibirUsuarios = produtoDeTrocaService.exibirTodosProdutosDeTroca();
         Assertions.assertTrue(exibirUsuarios.isEmpty());
     }
 
     @Test
     @DisplayName("O teste deve retornar true, se o metodo de buscar por id estiver funcionando corretamente")
-    void testeDeBuscarUsuarioViaId() {
-        usuarioService.buscarId(1L);
+    void testeDeBuscarProdutoViaId() {
+        produtoDeTrocaService.exibirProdutosDeTrocaViaId(1L);
         Assertions.assertTrue(true);
     }
 
     @Test
     @DisplayName("O teste deve retornar true, se o metodo de atualizar estiver funcionando corretamente")
-    void testeDeAtualizarUsuario() {
-        usuarioService.alterarUsuarioCadastrado(usuarioModel);
+    void testeDeAtualizarProduto() {
+        produtoDeTrocaService.alterarProdutosDeTroca(produtoDeTrocaModel);
         Assertions.assertTrue(true);
     }
-
     @Test
     @DisplayName("O teste deve retornar true, se o metodo deletar via id estiver funcionando corretamente")
-    void testeDeDeletarUsuarioViaId() {
-        usuarioService.deletar(1L);
-        Assertions.assertTrue(true);
-    }
-
-    @Test
-    @DisplayName("O teste deve retornar true, se o metodo de incrementar pontos por id estiver funcionando corretamente")
-    void testeDeIncrementarPontos() {
-        usuarioService.incrementaPontos(usuarioModel, 2000);
+    void testeDeDeletarProdutoViaId() {
+        produtoDeTrocaService.deletarProdutoDeTroca(1L);
         Assertions.assertTrue(true);
     }
 }
