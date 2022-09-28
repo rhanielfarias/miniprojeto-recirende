@@ -1,6 +1,7 @@
 package com.catalisa.miniprojetorecirende.service;
 
 import com.catalisa.miniprojetorecirende.model.EmbalagemSalgadinhoModel;
+import com.catalisa.miniprojetorecirende.model.UsuarioModel;
 import com.catalisa.miniprojetorecirende.repository.IEmbalagemSalgadinho;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,8 +15,18 @@ public class EmbalagemSalgadinhoService {
     @Autowired
     private IEmbalagemSalgadinho iEmbalagemSalgadinho;
 
+    @Autowired
+    UsuarioService usuarioService;
+
 
     public EmbalagemSalgadinhoModel cadastrarEmbalagens(EmbalagemSalgadinhoModel embalagemSalgadinhoModel) {
+//        if (iEmbalagemSalgadinho.findById(id)){ //query para numero de serie
+//            //se voltar resultado gera erro
+//        }//caso contrario cadastra
+        embalagemSalgadinhoModel.getUsuarioModel().getId();
+        UsuarioModel usuario = usuarioService.buscarId(embalagemSalgadinhoModel.getUsuarioModel().getId()).orElseThrow();
+        usuarioService.incrementaPontos(usuario, 1500);
+
         return iEmbalagemSalgadinho.save(embalagemSalgadinhoModel);
     }
 

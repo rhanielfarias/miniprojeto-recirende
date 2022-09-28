@@ -44,6 +44,8 @@ public class UsuarioModel {
     @Column(name = "telefone_usuario", length = 30, nullable = false)
     private String telefone;
 
+    private Integer pontos = 0;
+
 
     @JsonIgnore
     @OneToMany(mappedBy = "usuarioModel", cascade = CascadeType.ALL)

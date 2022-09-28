@@ -16,6 +16,12 @@ public class UsuarioService {
 
 
     public UsuarioModel cadastrar(UsuarioModel usuarioModel) {
+
+        return usuarioRepository.save(usuarioModel);
+    }
+
+    public UsuarioModel incrementaPontos(UsuarioModel usuarioModel, Integer pontos){
+        usuarioModel.setPontos(usuarioModel.getPontos() + pontos);
         return usuarioRepository.save(usuarioModel);
     }
 
