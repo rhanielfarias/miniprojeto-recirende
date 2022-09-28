@@ -25,14 +25,10 @@ public class EmbalagemSalgadinhoModel {
     //tamanho maximo de número de série de 8 digitos
     private String numeroDeSerie;
 
+    @ManyToOne
+    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
+    private UsuarioModel usuarioModel;
 
-
-//    @Column
-//    private Integer pontos;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
-//    private UsuarioModel usuarioModel;
 
 //    @ManyToOne
 //    @JoinColumn(name = "ponto_coleta_id", referencedColumnName = "id")

@@ -44,18 +44,13 @@ public class UsuarioModel {
     private long telefone;
 
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "usuarioModel", cascade = CascadeType.ALL)
+    private List<EmbalagemSalgadinhoModel> embalagemSalgadinhoModels = new ArrayList<>();
 
 
 
 
-
-
-
-
-//
-//    @JsonIgnore
-//    @OneToMany(mappedBy = "usuarioModel", cascade = CascadeType.ALL)
-//    private List<EmbalagemSalgadinhoModel> embalagemSalgadinhoModels = new ArrayList<>();
 
 //    private int pontuacao = embalagemSalgadinhoModels.size() * 1500;
 //
