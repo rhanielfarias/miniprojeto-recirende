@@ -16,7 +16,6 @@ import java.util.List;
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "usuarios")
 public class UsuarioModel {
@@ -38,9 +37,8 @@ public class UsuarioModel {
     private long telefone;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
-    private List<EmbalagemSalgadinhoModel> qtdEmbalagem;
-    private int total = qtdEmbalagem.size() * 1500;
+    @OneToMany(mappedBy = "usuarioModel", cascade = CascadeType.ALL)
+    private List<EmbalagemSalgadinhoModel> embalagemSalgadinhoModels;
 
     public UsuarioModel(String nomeUsuario, LocalDate dataNascimento, String cpf, String email, long telefone) {
         this.nomeUsuario = nomeUsuario;
@@ -48,5 +46,8 @@ public class UsuarioModel {
         this.cpf = cpf;
         this.email = email;
         this.telefone = telefone;
+    }
+
+    public UsuarioModel() {
     }
 }
