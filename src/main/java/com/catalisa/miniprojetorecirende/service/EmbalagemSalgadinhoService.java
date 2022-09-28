@@ -6,6 +6,7 @@ import com.catalisa.miniprojetorecirende.model.PontoDeTrocaModel;
 import com.catalisa.miniprojetorecirende.repository.IEmbalagemSalgadinho;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -18,14 +19,31 @@ public class EmbalagemSalgadinhoService {
     @Autowired
     private IEmbalagemSalgadinho iEmbalagemSalgadinho;
 
+    public boolean existsByNumeroDeSerie(String numeroDeSerie){
+        return iEmbalagemSalgadinho.existsByNumeroDeSerie(numeroDeSerie);
+    }
 
+    public EmbalagemSalgadinhoModel cadastrarEmbalagens(EmbalagemSalgadinhoModel embalagemSalgadinhoModel, Long id) {
 
-    public EmbalagemSalgadinhoModel cadastrarEmbalagens(EmbalagemSalgadinhoModel embalagemSalgadinhoModel) {
-        //EmbalagemSalgadinhoModel saldoAtualizado = embalagemSalgadinhoModel.setSaldoDePontos(1500);
-       embalagemSalgadinhoModel.getPontoDeTrocaModel().getId();
-       Double soma = embalagemSalgadinhoModel.getPontoDeTrocaModel().getPntsDistribuidos() +1500;
-       embalagemSalgadinhoModel.getPontoDeTrocaModel().setPntsDistribuidos(soma);
+        Optional<EmbalagemSalgadinhoModel> optionalEmbalagemSalgadinhoModel = iEmbalagemSalgadinho.findById(id);
+        if (optionalEmbalagemSalgadinhoModel.isEmpty()) {
+            throw new RuntimeException("Erro: este usuário não foi encontrado no sistema");
+        }
+
+        EmbalagemSalgadinhoModel salgadinhoModel = optionalEmbalagemSalgadinhoModel.get();
+//        Status statusInfo = contas.getStatus();
+//        contaCarregada.setStatus(statusInfo);
+
         return iEmbalagemSalgadinho.save(embalagemSalgadinhoModel);
+
+
+//        //EmbalagemSalgadinhoModel saldoAtualizado = embalagemSalgadinhoModel.setSaldoDePontos(1500);
+//       embalagemSalgadinhoModel.getUsuarioModel().getId();
+//       if (embalagemSalgadinhoModel.getUsuarioModel().getId().i)
+//
+//       Double soma = embalagemSalgadinhoModel.getPontoDeTrocaModel().getPntsDistribuidos() +1500;
+//       embalagemSalgadinhoModel.getPontoDeTrocaModel().setPntsDistribuidos(soma);
+//        return iEmbalagemSalgadinho.save(embalagemSalgadinhoModel);
     }
 
     public List<EmbalagemSalgadinhoModel> exibirListaDeEmbalagens() {

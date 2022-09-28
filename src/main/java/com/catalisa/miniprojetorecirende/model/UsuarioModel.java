@@ -36,9 +36,13 @@ public class UsuarioModel {
     @Column(length = 10)
     private long telefone;
 
+
     @JsonIgnore
     @OneToMany(mappedBy = "usuarioModel", cascade = CascadeType.ALL)
+
     private List<EmbalagemSalgadinhoModel> embalagemSalgadinhoModels;
+
+    private int pontuacao = embalagemSalgadinhoModels.size() * 1500;
 
     public UsuarioModel(String nomeUsuario, LocalDate dataNascimento, String cpf, String email, long telefone) {
         this.nomeUsuario = nomeUsuario;
@@ -48,6 +52,4 @@ public class UsuarioModel {
         this.telefone = telefone;
     }
 
-    public UsuarioModel() {
-    }
 }

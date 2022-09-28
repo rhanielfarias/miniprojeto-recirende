@@ -25,13 +25,6 @@ public class PontoDeTrocaService {
     }
 
     public PontoDeTrocaModel cadastrar(PontoDeTrocaModel pontoDeTrocaModel) {
-        pontoDeTrocaModel.getId();
-        pontoDeTrocaModel.getRazaoSocial();
-        pontoDeTrocaModel.getNomeFantasia();
-        pontoDeTrocaModel.getCnpj();
-        pontoDeTrocaModel.getLogradouro();
-        pontoDeTrocaModel.getCidade();
-        pontoDeTrocaModel.getEstado().toUpperCase();
         return iPontoDeTrocaRepository.save(pontoDeTrocaModel);
     }
 

@@ -19,8 +19,8 @@ public class EmbalagemSalgadinhoController {
     private EmbalagemSalgadinhoService embalagemSalgadinhoService;
 
     @PostMapping
-    public ResponseEntity<EmbalagemSalgadinhoModel> cadastrarProdutoDeTroca(@RequestBody EmbalagemSalgadinhoModel embalagemSalgadinhoModel) {
-        EmbalagemSalgadinhoModel embalagemSalgadinho = embalagemSalgadinhoService.cadastrarEmbalagens(embalagemSalgadinhoModel);
+    public ResponseEntity<EmbalagemSalgadinhoModel> cadastrarProdutoDeTroca(@PathVariable @RequestBody EmbalagemSalgadinhoModel embalagemSalgadinhoModel, Long id) {
+        EmbalagemSalgadinhoModel embalagemSalgadinho = embalagemSalgadinhoService.cadastrarEmbalagens(embalagemSalgadinhoModel, id);
         return new ResponseEntity<>(embalagemSalgadinho, HttpStatus.CREATED);
     }
 
