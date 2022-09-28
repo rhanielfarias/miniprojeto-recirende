@@ -1,8 +1,7 @@
-package com.catalisa.miniprojetorecirende;
+package com.catalisa.miniprojetorecirende.service;
 
 import com.catalisa.miniprojetorecirende.model.EmbalagemSalgadinhoModel;
 import com.catalisa.miniprojetorecirende.repository.IEmbalagemSalgadinho;
-import com.catalisa.miniprojetorecirende.service.EmbalagemSalgadinhoService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -27,14 +26,14 @@ public class EmbalagemTest {
     private EmbalagemSalgadinhoModel embalagemSalgadinhoModel;
 
     @BeforeEach
-    private void inicializador(){
+    private void inicializador() {
         MockitoAnnotations.openMocks(this);
         embalagemSalgadinhoModel = new EmbalagemSalgadinhoModel();
     }
 
     @Test
     @DisplayName("Testando o metodo de cadastrar")
-    void testeSeCadastroDeCidadeEstaFuncionando() {
+    void testeSeCadastroDeEmbalagemEstaFuncionando() {
         iEmbalagemSalgadinho.save(embalagemSalgadinhoModel);
         Mockito.when(iEmbalagemSalgadinho.existsById(Mockito.anyLong())).thenReturn(true);
         Mockito.verify(iEmbalagemSalgadinho, Mockito.times(1)).save(embalagemSalgadinhoModel);
@@ -42,29 +41,29 @@ public class EmbalagemTest {
 
 
     @Test
-    @DisplayName("O teste deve retornar true, pois nenhuma cidade foi cadastrada")
-    void testeDeExibicaoDeCidades() {
+    @DisplayName("O teste deve retornar true, pois nenhuma embalagem foi cadastrada")
+    void testeDeExibicaoDeEmbalagens() {
         List<EmbalagemSalgadinhoModel> exibirListaDeEmbalagens = embalagemSalgadinhoService.exibirListaDeEmbalagens();
         Assertions.assertTrue(exibirListaDeEmbalagens.isEmpty());
     }
 
     @Test
     @DisplayName("O teste deve retornar true, se o metodo de buscar por id estiver funcionando corretamente")
-    void testeDeBuscarCidadesViaId() {
+    void testeDeBuscarEmbalagensViaId() {
         embalagemSalgadinhoService.buscarEmbalagemViaId(1L);
         Assertions.assertTrue(true);
     }
 
     @Test
     @DisplayName("O teste deve retornar true, se o metodo de atualizar estiver funcionando corretamente")
-    void testeDeAtualizarCidade() {
+    void testeDeAtualizarEmbalagens() {
         embalagemSalgadinhoService.alterarEmbalagens(embalagemSalgadinhoModel);
         Assertions.assertTrue(true);
     }
 
     @Test
     @DisplayName("O teste deve retornar true, se o metodo deletar via id estiver funcionando corretamente")
-    void testeDeDeletarCidadesViaId() {
+    void testeDeDeletarEmbalagensViaId() {
         embalagemSalgadinhoService.deletarEmbalagens(1L);
         Assertions.assertTrue(true);
     }
