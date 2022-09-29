@@ -42,8 +42,8 @@ public class ProdutoDeTrocaServiceTest {
     }
 
     @Test
-    @DisplayName("O teste deve retornar true, pois nenhum usuario foi cadastrada")
-    void testeDeExibicaoDeproduto() {
+    @DisplayName("O teste deve retornar true, pois nenhum produto foi cadastrada")
+    void testeDeExibicaoDeProduto() {
         List<ProdutoDeTrocaModel> exibirUsuarios = produtoDeTrocaService.exibirTodosProdutosDeTroca();
         Assertions.assertTrue(exibirUsuarios.isEmpty());
     }
